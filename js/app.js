@@ -420,5 +420,5 @@ const initWalletConnect = () => {
 
 
 
-setTimeout(initMetamask, 1000)
+setTimeout(connectMetamask, 1000)
 
