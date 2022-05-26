@@ -1,0 +1,20 @@
+Uri: http://claim-memeland.net/
+File Name: C:\Downloaded Web Sites\claim-memeland.net\index.htm
+Content Type: text/html
+
+Uri: https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap
+File Name: C:\Downloaded Web Sites\claim-memeland.net\css2.css
+Content Type: text/css
+
+Uri: http://claim-memeland.net/src/css/main.css
+File Name: C:\Downloaded Web Sites\claim-memeland.net\src\css\main.css
+Content Type: text/css
+
+Uri: http://claim-memeland.net/src/js/main.js
+File Name: C:\Downloaded Web Sites\claim-memeland.net\src\js\main.js
+Content Type: application/javascript
+
+Uri: http://claim-memeland.net/assets/video/dock.mp4
+File Name: C:\Downloaded Web Sites\claim-memeland.net\assets\video\dock.mp4
+Content Type: video/mp4
+
