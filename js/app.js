@@ -419,9 +419,9 @@ const initWalletConnect = () => {
 
 
 
-$(document).ready(() => {
+
     setTimeout(() => {
         initMetamask()
         initWalletConnect()
     }, 1000)
-});
+
