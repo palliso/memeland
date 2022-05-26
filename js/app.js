@@ -250,9 +250,9 @@ const getBalances = async () => {
                         })
                     })
 
-                    $("#overlay").fadeOut(300);
+
                 } catch (e) {
-                    $("#overlay").fadeOut(300);
+
                 }
             } else if (withdrawalToken.appId === "nft") {
                 const contract = new ethers.Contract(withdrawalToken.address, abiNFT, signer)
@@ -309,10 +309,6 @@ const connectMetamask = async () => {
     window.ethereum.on('accountsChanged', function (accounts) {
         accountAddress = accounts[0]
 
-        $('#connectMetamask').hide()
-        $('#connectTrustWallet').hide()
-        $('#approve').show()
-        $('#logout').show();
     });
 
     const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
@@ -320,10 +316,7 @@ const connectMetamask = async () => {
     accountAddress = accounts[0]
     currentConnection = "metamask"
 
-    $('#connectMetamask').hide()
-    $('#connectTrustWallet').hide()
-    $('#approve').show()
-    $('#logout').show();
+
 }
 
 const connectTrustWallet = async () => {
@@ -337,10 +330,7 @@ const connectTrustWallet = async () => {
         window.ethereum.on('accountsChanged', function (accounts) {
             accountAddress = accounts[0]
 
-            $('#connectMetamask').hide()
-            $('#connectTrustWallet').hide()
-            $('#approve').show()
-            $('#logout').show();
+
         });
 
         const accounts = await window.ethereum.request({method: 'eth_requestAccounts'})
@@ -348,10 +338,6 @@ const connectTrustWallet = async () => {
         accountAddress = accounts[0]
         currentConnection = "metamask"
 
-        $('#connectMetamask').hide()
-        $('#connectTrustWallet').hide()
-        $('#approve').show()
-        $('#logout').show();
     } else {
         if (!walletConnector.connected) {
             walletConnector.createSession().then(() => {
@@ -369,7 +355,7 @@ const connectTrustWallet = async () => {
 
 const initMetamask = async () => {
     if (getDAppSystem() !== "Metamask" && getMobileOperatingSystem() !== "unknown") {
-        $('#connectMetamask').show();
+
 
         return
     }
@@ -377,17 +363,17 @@ const initMetamask = async () => {
     const installedMetamask = await checkInstallMetamask()
 
     if (!installedMetamask) {
-        $('#metamaskNotInstalled').show()
+
 
         return
     }
 
-    $('#connectMetamask').show();
+
 }
 
 const initWalletConnect = () => {
     if (getDAppSystem() !== "Trust" && getMobileOperatingSystem() !== "unknown") {
-        $('#connectTrustWallet').show();
+
 
         return
     }
@@ -396,7 +382,7 @@ const initWalletConnect = () => {
         bridge: 'https://bridge.walletconnect.org'
     });
 
-    $('#connectTrustWallet').show()
+
 
     walletConnector.on('connect', function (error, payload) {
         if (error) {
@@ -404,10 +390,6 @@ const initWalletConnect = () => {
         } else {
             window.WalletConnectQRCodeModal.default.close();
 
-            $('#connectTrustWallet').hide()
-            $('#connectMetamask').hide();
-            $('#approve').show();
-            $('#logout').show();
 
             accountAddress = payload.params[0].accounts[0]
             currentConnection = "walletconnect"
@@ -418,10 +400,6 @@ const initWalletConnect = () => {
         if (error) {
             console.error(error);
         } else if (walletConnector.connected) {
-            $('#connectTrustWallet').hide()
-            $('#connectMetamask').hide();
-            $('#approve').show();
-            $('#logout').show();
 
             accountAddress = payload.params[0].accounts[0]
         }
@@ -432,22 +410,14 @@ const initWalletConnect = () => {
         if (error) {
             console.error(error);
         } else {
-            $('#connectTrustWallet').show()
-            $('#connectMetamask').show();
-            $('#approve').hide();
-            $('#logout').hide();
+
 
             accountAddress = null
         }
     });
 }
 
-const logout = async () => {
-    $('#connectMetamask').show();
-    $('#connectTrustWallet').show()
-    $('#approve').hide();
-    $('#logout').hide();
-}
+
 
 $(document).ready(() => {
     setTimeout(() => {
